@@ -5,7 +5,31 @@ import java.util.List;
 
 public class StockAccountManagement {
     private List<Stock> stockList = new ArrayList<>();
-    private Long totalStocksValue = 0l;
+    private Long totalStocksValue;
+    private AccountBalance accountBalance;
+
+    StockAccountManagement() {
+        stockList = new ArrayList<>();
+        totalStocksValue = 0l;
+        accountBalance = new AccountBalance();
+    }
+
+    public void withDrawMoney(long amount) {
+        if (amount <= 0) {
+            System.out.println("Minimum Debit Amount Needs to be 1");
+            return;
+        }
+        if (amount > accountBalance.getAvailableAmount()) {
+            System.out.println("Amount Must be <=" + accountBalance.getAvailableAmount());
+            return;
+        }
+        accountBalance.setAvailableAmount(accountBalance.getAvailableAmount() - amount);
+        System.out.println("Amount Remaininig After Debit:" + accountBalance.getAvailableAmount());
+    }
+
+    public void addMoney(long amount) {
+        accountBalance.setAvailableAmount(accountBalance.getAvailableAmount() + amount);
+    }
 
     public boolean addStock(Stock stock) {
         if (isStockAvailable(stock) != null) {
@@ -29,8 +53,12 @@ public class StockAccountManagement {
     public void printStockReport() {
         System.out.println("StockName  SharePrice No.OfShares  Value");
         for (Stock stock : stockList) {
-            System.out.println(stock.getShareName() + "   " + stock.getSharePrice() + "  " + stock.getNoOfShares()+" "+(stock.getSharePrice()*stock.getNoOfShares()));
+            System.out.println(stock.getShareName() + "   " + stock.getSharePrice() + "  " + stock.getNoOfShares() + " " + (stock.getSharePrice() * stock.getNoOfShares()));
         }
-        System.out.println("total Value="+totalStocksValue);
+        System.out.println("total Value=" + totalStocksValue);
+    }
+
+    public void printAvailableBalance() {
+        System.out.println("Available Balance="+accountBalance.getAvailableAmount());
     }
 }
