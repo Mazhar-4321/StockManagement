@@ -45,12 +45,9 @@ public class Main {
 
     private void options(Main main) {
         while (true) {
-            System.out.println("Press 1 to Add Stocks, 2 for Print Stock Report, 3 for ADD Funds,4 for withdraw Funds,5 for Check Available Balance,6 for Buy Shares,7 for Sell Shares, -1 to Exit");
+            System.out.println("Press 2 for Print Stock Report, 3 for ADD Funds,4 for withdraw Funds,5 for Check Available Balance,6 for Buy Shares,7 for Sell Shares, -1 to Exit");
             int option = scanner.nextInt();
             switch (option) {
-                case ADD_STOCK:
-                    addStocks();
-                    break;
                 case PRINT_STOCK_REPORT:
                     printStockReport();
                     break;
