@@ -2,8 +2,8 @@ package com.company;
 
 public class Stock {
     private String shareName;
-    private Integer noOfShares;
-    private Integer sharePrice;
+    private int noOfShares;
+    private int sharePrice;
 
     public String getShareName() {
         return shareName;

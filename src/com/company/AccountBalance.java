@@ -1,13 +1,13 @@
 package com.company;
 
 public class AccountBalance {
-    private long availableAmount=0l;
+    private double availableAmount=0l;
 
-    public long getAvailableAmount() {
+    public double getAvailableAmount() {
         return availableAmount;
     }
 
-    public void setAvailableAmount(long availableAmount) {
+    public void setAvailableAmount(double availableAmount) {
         this.availableAmount = availableAmount;
     }
 }
