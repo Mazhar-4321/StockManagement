@@ -21,7 +21,7 @@ public class UsersManagement {
     }
 
     public User checkForUser(String username, String password) {
-        if (checkUserNameAvailability(username)) {
+        if (checkUserNameAvailability(username)&&usersMap.get(username).getPassword().equals(password)) {
             return usersMap.get(username);
         }
         return null;

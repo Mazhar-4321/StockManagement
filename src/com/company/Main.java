@@ -107,7 +107,7 @@ public class Main {
             return;
         }
         System.out.println("Your Portfolio");
-        shareMap= stockMarket.printSharesList(user.getSharesList());
+        shareMap = stockMarket.printSharesList(user.getSharesList());
         System.out.println("Please enter the name of Share U Want to Sell");
         String shareName = scanner.next();
         int quantity = 0;
@@ -132,7 +132,7 @@ public class Main {
 
     private void buyShares() {
         System.out.println("Shares Portfolio");
-        Map<String, Share> shareMap =stockMarket.printSharesList(stockMarket.getAllShares());
+        Map<String, Share> shareMap = stockMarket.printSharesList(stockMarket.getAllShares());
         System.out.println("Please enter the name of Share U Want to Buy");
         String shareName = scanner.next();
         int quantity = 0;
@@ -161,16 +161,16 @@ public class Main {
     }
 
     private void creditMoneyToUsersAccount() {
-        System.out.println("Your Current Account Balance :"+user.getFunds());
+        System.out.println("Your Current Account Balance :" + user.getFunds());
         System.out.println("Enter Amount You Want to Add");
         double amount = scanner.nextDouble();
         stockMarket.addFundsToUsersAccount(user, amount);
-        System.out.println("Your Current Account Balance :"+user.getFunds());
+        System.out.println("Your Current Account Balance :" + user.getFunds());
         printDashedLine();
     }
 
     private void debitMoneyFromUsersAccount() {
-        System.out.println("Your Current Account Balance :"+user.getFunds());
+        System.out.println("Your Current Account Balance :" + user.getFunds());
         System.out.println("Enter Amount You Want to Withdraw");
         double amount = scanner.nextDouble();
         if (user.getFunds() < amount) {
@@ -179,7 +179,7 @@ public class Main {
             return;
         }
         stockMarket.addFundsToUsersAccount(user, -amount);
-        System.out.println("Your Current Account Balance :"+user.getFunds());
+        System.out.println("Your Current Account Balance :" + user.getFunds());
         printDashedLine();
     }
 
